@@ -8,12 +8,17 @@ import javax.swing.JPanel;
 
 public class Panel3 extends JPanel
 {
-	JButton Bollywood = new JButton("Bollywood News",new ImageIcon("bollywood.png"));
-	JButton top10Movie = new JButton("Hollywood Top 10",new ImageIcon("TopMovie.png"));
-	JButton Hollywood = new JButton("Hollywood",new ImageIcon("Movie.png"));
-	JButton about = new JButton("About Us",new ImageIcon("About.png"));
-	public Panel3() 
+	JButton Bollywood;
+	JButton top10Movie;
+	JButton Hollywood;
+	JButton about;
+	public Panel3(ImageIcon a,ImageIcon b,ImageIcon c,ImageIcon d) 
 	{
+		super();
+		Bollywood = new JButton("Bollywood News",a);
+		top10Movie = new JButton("Hollywood Top 10",b);
+		Hollywood = new JButton("Hollywood",c);
+		about = new JButton("About Us",d);
 		setLayout(new GridLayout(2,2));
 		Bollywood.setBackground(Color.WHITE);
 		top10Movie.setBackground(Color.WHITE);

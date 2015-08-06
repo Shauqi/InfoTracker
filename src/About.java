@@ -13,7 +13,7 @@ import javax.swing.JTextArea;
 public class About extends JPanel
 {
 	JLabel label1 = new JLabel("This software is created by Mahmudul Hasan Shauqi and Sharif"
-			+ " Khan KUET CSE 2k13",new ImageIcon("Shauqi.jpg"),10);
+			+ " Khan KUET CSE 2k13",new ImageIcon(getClass().getResource("Shauqi.jpg")),10);
 	JTextArea txt = new JTextArea();
 	private Image image;
 	public About() {
@@ -22,7 +22,7 @@ public class About extends JPanel
 		setLayout(new BorderLayout());
 		add(label1,BorderLayout.NORTH);
 		label1.setForeground(Color.RED);
-		this.image = new ImageIcon("background.jpg").getImage();
+		this.image = new ImageIcon(getClass().getResource("background.jpg")).getImage();
 	}
 	@Override
     protected void paintComponent(Graphics g) {

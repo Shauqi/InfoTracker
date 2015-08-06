@@ -3,6 +3,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.font.ImageGraphicAttribute;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -32,6 +33,21 @@ public class programme extends JFrame
 	Panel2 p2;
 	Panel3 p3;
 	About about;
+	ImageIcon news = new ImageIcon(getClass().getResource("News.png"));
+	ImageIcon entertainment = new ImageIcon(getClass().getResource("Entertainment.png"));
+	ImageIcon footballTran=new ImageIcon(getClass().getResource("FootballTransfers.png"));
+	ImageIcon headlines=new ImageIcon(getClass().getResource("headlines.png"));
+	ImageIcon islam=new ImageIcon(getClass().getResource("Islamic.jpg"));
+	ImageIcon bdnews=new ImageIcon(getClass().getResource("bdnews.png"));
+	ImageIcon technews=new ImageIcon(getClass().getResource("TechNews.png"));
+	ImageIcon entrep=new ImageIcon(getClass().getResource("Entrepreneur.jpg"));
+	ImageIcon science=new ImageIcon(getClass().getResource("science.jpg"));
+	ImageIcon sports=new ImageIcon(getClass().getResource("sports.png"));
+	ImageIcon abou=new ImageIcon(getClass().getResource("About.png"));
+	ImageIcon bolly=new ImageIcon(getClass().getResource("bollywood.png"));
+	ImageIcon top=new ImageIcon(getClass().getResource("TopMovie.png"));
+	ImageIcon holly=new ImageIcon(getClass().getResource("Movie.png"));
+	
 	CardLayout cardLayout = new CardLayout();
 	JMenuBar menuBar = new JMenuBar();
 	String parent = null;
@@ -42,9 +58,9 @@ public class programme extends JFrame
 		setJMenuBar(menuBar);
 		String className = getLookAndFeelClassName("Nimbus");
 		UIManager.setLookAndFeel(className);
-		JButton Home = new JButton("Home",new ImageIcon("HomeButton.png"));
-		JButton Exit = new JButton("Exit",new ImageIcon("Exit.png"));
-		JButton Back = new JButton("Back",new ImageIcon("Back.png"));
+		JButton Home = new JButton("Home",new ImageIcon(getClass().getResource("HomeButton.png")));
+		JButton Exit = new JButton("Exit",new ImageIcon(getClass().getResource("Exit.png")));
+		JButton Back = new JButton("Back",new ImageIcon(getClass().getResource("Back.png")));
 		Home.setBackground(Color.WHITE);
 		Exit.setBackground(Color.WHITE);
 		Back.setBackground(Color.WHITE);
@@ -62,9 +78,9 @@ public class programme extends JFrame
 		sportsNewsClass = new SportsNewsClass();
 		techNews = new TechNews();
 		footballTransfer = new FootballTransfer();
-		p1 = new panel1();
-		p2 = new Panel2();
-		p3 = new Panel3();
+		p1 = new panel1(news,entertainment,footballTran,headlines,islam,abou);
+		p2 = new Panel2(bdnews,technews,entrep,science,sports,abou);
+		p3 = new Panel3(bolly,top,holly,abou);
 		about = new About();
 		add(p1,"panel1");
 		add(p2,"panel2");

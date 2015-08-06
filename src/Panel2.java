@@ -10,15 +10,21 @@ import javax.swing.JPanel;
 
 public class Panel2 extends JPanel
 {
-	JButton bdnews = new JButton("BD News",new ImageIcon("bdnews.png"));
-	JButton technews = new JButton("Technology",new ImageIcon("TechNews.png"));
-	JButton entrepreneur = new JButton("Entrepreneur",new ImageIcon("Entrepreneur.jpg"));
-	JButton science = new JButton("Science",new ImageIcon("science.jpg"));
-	JButton sports = new JButton("Sports",new ImageIcon("sports.png"));
-	JButton about = new JButton("About us",new ImageIcon("About.png"));
-	public Panel2() 
+	JButton bdnews;
+	JButton technews;
+	JButton entrepreneur;
+	JButton science;
+	JButton sports;
+	JButton about;
+	public Panel2(ImageIcon a,ImageIcon b,ImageIcon c,ImageIcon d,ImageIcon e,ImageIcon f) 
 	{
 		super();
+		bdnews = new JButton("BD News",a);
+		technews = new JButton("Technology",b);
+		entrepreneur = new JButton("Entrepreneur",c);
+		science = new JButton("Science",d);
+		sports = new JButton("Sports",e);
+		about = new JButton("About us",f);
 		bdnews.setBackground(Color.WHITE);
 		technews.setBackground(Color.WHITE);
 		entrepreneur.setBackground(Color.WHITE);

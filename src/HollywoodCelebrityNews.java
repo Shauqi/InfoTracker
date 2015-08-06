@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -6,6 +7,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -21,6 +23,7 @@ public class HollywoodCelebrityNews extends JPanel
 	MovieFeed feed = parser.readFeed();
 	String data = "";
 	JTextArea t;
+	JLabel label = new JLabel("Click here to see the full news.");
 	BorderLayout f = new BorderLayout();
 	JScrollPane scroll;
 	public HollywoodCelebrityNews()
@@ -34,10 +37,12 @@ public class HollywoodCelebrityNews extends JPanel
 	setBorder(new TitledBorder(new EtchedBorder(),"Hollywood News"));
 	t =new JTextArea(data);
 	t.setEditable(false);
+	label.setForeground(Color.BLUE);
 	scroll = new JScrollPane(t);
 	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-	add(scroll);
-	t.addMouseListener(new MouseAdapter() {
+	add(scroll,f.CENTER);
+	add(label,f.NORTH);
+	label.addMouseListener(new MouseAdapter() {
 		public void mouseClicked(MouseEvent e)
 		{
 			if(Desktop.isDesktopSupported())

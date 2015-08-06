@@ -12,10 +12,10 @@ public class ReadTest {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		int width =(int) screenSize.getWidth();
 		int height =(int) screenSize.getHeight();
+		height=height-30;
 		programme p = new programme();
 		p.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		p.setSize(width, height);
 		p.setVisible(true);
 	}
-
 }

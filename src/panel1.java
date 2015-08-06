@@ -16,16 +16,16 @@ public class panel1 extends JPanel
 	JButton headlines;
 	JButton islamicReviews;
 	JButton about;
-	panel1()
+	panel1(ImageIcon a,ImageIcon b,ImageIcon c,ImageIcon d,ImageIcon e,ImageIcon f)
 	{
 		super();
 		setLayout(new GridLayout(2,2));
-		news=new JButton("News",new ImageIcon("News.png"));
-		entertainment = new JButton("Entertainment",new ImageIcon("Entertainment.png"));
-		footballTransfer = new JButton("Football Transfer Rumours",new ImageIcon("FootballTransfers.png"));
-		headlines = new JButton("News Headlines",new ImageIcon("headlines.png"));
-		islamicReviews = new JButton("Islamic reviews",new ImageIcon("islamic.jpg"));
-		about = new JButton("About Us",new ImageIcon("About.png"));
+		news=new JButton("News",a);
+		entertainment = new JButton("Entertainment",b);
+		footballTransfer = new JButton("Football Transfer Rumours",c);
+		headlines = new JButton("News Headlines",d);
+		islamicReviews = new JButton("Islamic reviews",e);
+		about = new JButton("About Us",f);
 		news.setBackground(Color.WHITE);
 		entertainment.setBackground(Color.WHITE);
 		footballTransfer.setBackground(Color.WHITE);
