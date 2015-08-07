@@ -22,7 +22,7 @@ import javax.swing.border.TitledBorder;
 
 public class BangladeshiNews extends JPanel
 {
-    RSSFeedParser parser = new RSSFeedParser("http://www.bangladesh.com/blog/rss/");
+    RSSFeedParser parser = new RSSFeedParser("http://www.thedailystar.net/top-news/rss.xml");
 	JLabel label = new JLabel("Click here to see the full news");
 	Feed feed = parser.readFeed();
 	
@@ -53,7 +53,7 @@ public class BangladeshiNews extends JPanel
 			if(Desktop.isDesktopSupported())
 			{
 			  try {
-				Desktop.getDesktop().browse(new URL("http://www.prothom-alo.com/").toURI());
+				Desktop.getDesktop().browse(new URL("http://www.thedailystar.net/").toURI());
 			} catch (IOException | URISyntaxException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

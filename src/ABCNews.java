@@ -16,17 +16,18 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 
-public class HollywoodCelebrityNews extends JPanel 
+public class ABCNews extends JPanel
 {
-    MovieFeedParser parser = new MovieFeedParser("http://www.tmz.com/rss.xml");
+MovieFeedParser parser = new MovieFeedParser("http://feeds.abcnews.com/abcnews/topstories");
 	
 	MovieFeed feed = parser.readFeed();
+	
 	String data = "";
 	JTextArea t;
-	JLabel label = new JLabel("Click here to see the full news.");
+	JLabel label = new JLabel("Click here to see the full news");
 	BorderLayout f = new BorderLayout();
 	JScrollPane scroll;
-	public HollywoodCelebrityNews()
+	public ABCNews()
 	{
 	super();
 	for(MovieFeedMessage message : feed.getMessages())
@@ -34,7 +35,7 @@ public class HollywoodCelebrityNews extends JPanel
 		data+="Title:"+message+"\n\n";
 	}
 	setLayout(f);
-	setBorder(new TitledBorder(new EtchedBorder(),"Hollywood News"));
+	setBorder(new TitledBorder(new EtchedBorder(),"ABC News Headlines"));
 	t =new JTextArea(data);
 	t.setEditable(false);
 	label.setForeground(Color.BLUE);
@@ -48,7 +49,7 @@ public class HollywoodCelebrityNews extends JPanel
 			if(Desktop.isDesktopSupported())
 			{
 			  try {
-				Desktop.getDesktop().browse(new URL("http://www.tmz.com/").toURI());
+				Desktop.getDesktop().browse(new URL("http://abcnews.go.com/").toURI());
 			} catch (IOException | URISyntaxException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -56,7 +57,5 @@ public class HollywoodCelebrityNews extends JPanel
 			}
 		}
 	});
-	
 	}
-
 }

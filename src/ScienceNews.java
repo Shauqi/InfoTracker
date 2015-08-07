@@ -32,7 +32,7 @@ public class ScienceNews extends JPanel
 	super();
 	for(MovieFeedMessage message : feed.getMessages())
 	{
-		data+=message+"\n\n";
+		data+="Title"+message+"\n\n";
 	}
 	setLayout(f);
 	setBorder(new TitledBorder(new EtchedBorder(),"Science News"));
