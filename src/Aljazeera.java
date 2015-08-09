@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class Aljazeera extends JPanel
 	
 	String data = "";
 	JTextArea t;
-	JLabel label = new JLabel("Click here to see the full news");
+	JLabel label = new JLabel("<html><span style='font-size:20px'>Click here to see the full news</span><html>");
 	BorderLayout f = new BorderLayout();
 	JScrollPane scroll;
 	public Aljazeera()
@@ -39,6 +40,8 @@ public class Aljazeera extends JPanel
 	setBorder(new TitledBorder(new EtchedBorder(),"Aljazeera News Headlines"));
 	t =new JTextArea(data);
 	t.setEditable(false);
+	t.setForeground(Color.DARK_GRAY);
+	t.setFont(new Font("Serif", Font.BOLD, 15));
 	label.setForeground(Color.BLUE);
 	scroll = new JScrollPane(t);
 	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);

@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -18,10 +19,10 @@ import javax.swing.border.TitledBorder;
 
 public class BollywoodNews extends JPanel
 {
-    RSSFeedParser parser = new RSSFeedParser("http://www.bollywoodmdb.com/rss/news");
+    MovieFeedParser parser = new MovieFeedParser("http://www.nowrunning.com/cgi-bin/rss/main_hindi.xml");
 	
-	Feed feed = parser.readFeed();
-	JLabel label = new JLabel("Click on here to see the full news.");
+	MovieFeed feed = parser.readFeed();
+	JLabel label = new JLabel("<html><span style='font-size:20px'>Click on here to see the full news.</span><html>");
 	String data = "";
 	JTextArea t;
 	BorderLayout f = new BorderLayout();
@@ -29,14 +30,16 @@ public class BollywoodNews extends JPanel
 	public BollywoodNews()
 	{
 	super();
-	for(FeedMessage message : feed.getMessages())
+	for(MovieFeedMessage message : feed.getMessages())
 	{
-		data+=message+"\n";
+		data+="Title:"+message+"\n\n";
 	}
 	label.setForeground(Color.BLUE);
 	setLayout(f);
 	setBorder(new TitledBorder(new EtchedBorder(),"Bollywood News"));
 	t =new JTextArea(data);
+	t.setForeground(Color.DARK_GRAY);
+	t.setFont(new Font("Serif", Font.BOLD, 15));
 	t.setEditable(false);
 	scroll = new JScrollPane(t);
 	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -48,7 +51,7 @@ public class BollywoodNews extends JPanel
 			if(Desktop.isDesktopSupported())
 			{
 			  try {
-				Desktop.getDesktop().browse(new URL("http://www.bollywoodmdb.com/news/").toURI());
+				Desktop.getDesktop().browse(new URL("http://www.nowrunning.com/bollywoodevents/").toURI());
 			} catch (IOException | URISyntaxException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -18,26 +19,28 @@ import javax.swing.border.TitledBorder;
 
 public class SportsNewsClass extends JPanel{
 	
-    RSSFeedParser parser = new RSSFeedParser("http://sports.espn.go.com/espn/rss/news");
+    MovieFeedParser parser = new MovieFeedParser("http://sports.espn.go.com/espn/rss/news");
 	
-	Feed feed = parser.readFeed();
+	MovieFeed feed = parser.readFeed();
 	
 	String data = "";
-	JLabel label = new JLabel("Click here to see the full news.");
+	JLabel label = new JLabel("<html><span style='font-size:20px'>Click here to see the full news.</span><html>");
 	JTextArea t;
 	BorderLayout f = new BorderLayout();
 	JScrollPane scroll;
 	public SportsNewsClass()
 	{
 	super();
-	for(FeedMessage message : feed.getMessages())
+	for(MovieFeedMessage message : feed.getMessages())
 	{
-		data+=message+"\n";
+		data+="Title:"+message+"\n\n";
 	}
 	setLayout(f);
 	setBorder(new TitledBorder(new EtchedBorder(),"Sports News"));
 	t =new JTextArea(data);
 	t.setEditable(false);
+	t.setForeground(Color.DARK_GRAY);
+	t.setFont(new Font("Serif", Font.BOLD, 15));
 	label.setForeground(Color.BLUE);
 	scroll = new JScrollPane(t);
 	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);

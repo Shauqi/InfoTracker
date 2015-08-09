@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -22,7 +23,7 @@ import javax.swing.border.TitledBorder;
 public class MovieClass extends JPanel
 {
 	String data = "";
-    JLabel label = new JLabel("Click Here to see the full the news.");
+    JLabel label = new JLabel("<html><span style='font-size:20px'>Click here to see the full news.</span><html>");
 	MovieFeedParser parser = new MovieFeedParser("http://www.fandango.com/rss/top10boxoffice.rss");
 	
 	MovieFeed movieFeed = parser.readFeed();
@@ -42,6 +43,8 @@ public class MovieClass extends JPanel
 	setBorder(new TitledBorder(new EtchedBorder(),"Top 10 Movies"));
 	t =new JTextArea(data);
 	t.setEditable(false);
+	t.setForeground(Color.DARK_GRAY);
+	t.setFont(new Font("Serif", Font.BOLD, 15));
 	label.setBackground(Color.WHITE);
 	add(t,BorderLayout.CENTER);
 	add(label,BorderLayout.NORTH);

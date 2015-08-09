@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -18,13 +19,13 @@ import javax.swing.border.TitledBorder;
 
 public class ABCNews extends JPanel
 {
-MovieFeedParser parser = new MovieFeedParser("http://feeds.abcnews.com/abcnews/topstories");
+    MovieFeedParser parser = new MovieFeedParser("http://feeds.abcnews.com/abcnews/topstories");
 	
 	MovieFeed feed = parser.readFeed();
 	
 	String data = "";
 	JTextArea t;
-	JLabel label = new JLabel("Click here to see the full news");
+	JLabel label = new JLabel("<html><span style='font-size:20px'>Click here to see the full news</span><html>");
 	BorderLayout f = new BorderLayout();
 	JScrollPane scroll;
 	public ABCNews()
@@ -37,6 +38,8 @@ MovieFeedParser parser = new MovieFeedParser("http://feeds.abcnews.com/abcnews/t
 	setLayout(f);
 	setBorder(new TitledBorder(new EtchedBorder(),"ABC News Headlines"));
 	t =new JTextArea(data);
+	t.setForeground(Color.DARK_GRAY);
+	t.setFont(new Font("Serif", Font.BOLD, 15));
 	t.setEditable(false);
 	label.setForeground(Color.BLUE);
 	scroll = new JScrollPane(t);

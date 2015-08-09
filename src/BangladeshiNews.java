@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.ScrollPane;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -22,9 +23,9 @@ import javax.swing.border.TitledBorder;
 
 public class BangladeshiNews extends JPanel
 {
-    RSSFeedParser parser = new RSSFeedParser("http://www.thedailystar.net/top-news/rss.xml");
-	JLabel label = new JLabel("Click here to see the full news");
-	Feed feed = parser.readFeed();
+    MovieFeedParser parser = new MovieFeedParser("http://www.thedailystar.net/top-news/rss.xml");
+	JLabel label = new JLabel("<html><span style='font-size:20px'>Click here to see the full news</span><html>");
+	MovieFeed feed = parser.readFeed();
 	
 	String data="";
 	
@@ -34,15 +35,17 @@ public class BangladeshiNews extends JPanel
 	public BangladeshiNews()
 	{
 	super();
-	for(FeedMessage message : feed.getMessages())
+	for(MovieFeedMessage message : feed.getMessages())
 	{
-		data+=message+"\n";
+		data+="Title:"+message+"\n\n";
 	}
 	label.setForeground(Color.BLUE);
 	setLayout(f);
 	setBorder(new TitledBorder(new EtchedBorder(),"Bangla News"));
 	t =new JTextArea(data);
 	t.setEditable(false);
+	t.setForeground(Color.DARK_GRAY);
+	t.setFont(new Font("Serif", Font.BOLD, 15));
 	scroll = new JScrollPane(t);
 	scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 	add(scroll,f.CENTER);
