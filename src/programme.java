@@ -29,6 +29,7 @@ public class programme extends JFrame
 	SportsNewsClass sportsNewsClass;
 	TechNews techNews;
 	FootballTransfer footballTransfer;
+	Songs song;
 	panel1 p1;
 	Panel2 p2;
 	Panel3 p3;
@@ -47,7 +48,7 @@ public class programme extends JFrame
 	ImageIcon bolly=new ImageIcon(getClass().getResource("bollywood.png"));
 	ImageIcon top=new ImageIcon(getClass().getResource("TopMovie.png"));
 	ImageIcon holly=new ImageIcon(getClass().getResource("Movie.png"));
-	
+	ImageIcon songs=new ImageIcon(getClass().getResource("music.png"));
 	CardLayout cardLayout = new CardLayout();
 	JMenuBar menuBar = new JMenuBar();
 	String parent = null;
@@ -78,9 +79,10 @@ public class programme extends JFrame
 		sportsNewsClass = new SportsNewsClass();
 		techNews = new TechNews();
 		footballTransfer = new FootballTransfer();
+		song = new Songs();
 		p1 = new panel1(news,entertainment,footballTran,headlines,islam,abou);
 		p2 = new Panel2(bdnews,technews,entrep,science,sports,abou);
-		p3 = new Panel3(bolly,top,holly,abou);
+		p3 = new Panel3(bolly,top,holly,songs);
 		about = new About();
 		add(p1,"panel1");
 		add(p2,"panel2");
@@ -97,6 +99,7 @@ public class programme extends JFrame
 		add(footballTransfer,"FootballTransfer");
 		add(bonews,"Bollywood");
 		add(about,"About");
+		add(song,"song");
 		Home.addActionListener(new ActionListener() {
 			
 			@Override
@@ -269,12 +272,12 @@ public class programme extends JFrame
 				parent="panel3";
 			}
 		});
-		p3.about.addActionListener(new ActionListener() {
+		p3.songs.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				cardLayout.show(getContentPane(), "About");
+				cardLayout.show(getContentPane(), "song");
 				parent="panel3";
 			}
 		});
